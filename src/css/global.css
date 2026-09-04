@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+:root {
+  --ink: #070b14;
+  --ink-soft: #0c1422;
+  --panel: rgba(15, 26, 43, 0.78);
+  --panel-solid: #101c2d;
+  --panel-raised: #14243a;
+  --line: rgba(196, 157, 76, 0.24);
+  --line-bright: rgba(221, 181, 94, 0.55);
+  --gold: #d8b15d;
+  --gold-bright: #f0cf7a;
+  --cream: #f5efdf;
+  --muted: #91a0b5;
+  --muted-light: #bcc6d3;
+  --danger: #d97979;
+  --display: "Playfair Display", Georgia, serif;
+  --body: "DM Sans", "Segoe UI", sans-serif;
+  color: var(--cream);
+  background: var(--ink);
+  font-family: var(--body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--ink);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 82% 0%,
+      rgba(21, 51, 89, 0.45),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 0% 78%,
+      rgba(115, 78, 21, 0.1),
+      transparent 28rem
+    ),
+    var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--gold-bright);
+}

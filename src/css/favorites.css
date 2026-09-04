@@ -1,0 +1,44 @@
+.favorites-empty {
+  display: grid;
+  min-height: 48vh;
+  place-content: center;
+  justify-items: center;
+  padding: 42px 24px;
+  text-align: center;
+  animation: rise-in 600ms ease both;
+}
+
+.favorites-empty::before {
+  width: 1px;
+  height: 72px;
+  margin-bottom: 28px;
+  content: "";
+  background: linear-gradient(var(--gold), transparent);
+}
+
+.favorites-empty h1 {
+  max-width: 540px;
+  margin: 0 0 14px;
+  color: var(--cream);
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.favorites-empty p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

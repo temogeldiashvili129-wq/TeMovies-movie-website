@@ -1,14 +1,28 @@
 import MovieCard from "../components/MovieCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "../css/home.css";
+import { searchMovies, getPopularMovies } from "../services/api";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const loadPopularMovies = async () => {
+      try {
+        const popularMovies = await getPopularMovies();
+        setMovies(popularMovies);
+      } catch (error) {
+        console.error("Error fetching popular movies:", error);
+        setError("Failed to load movies...");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const movies = [
-    { id: 1, title: "Movie 1", description: "Description of Movie 1" },
-    { id: 2, title: "Movie 2", description: "Description of Movie 2" },
-    { id: 3, title: "Movie 3", description: "Description of Movie 3" },
-  ];
+    loadPopularMovies();
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -17,7 +31,19 @@ function Home() {
 
   return (
     <div className="home">
-      <form>
+      <div className="home-header">
+        <div>
+          <p className="home-kicker">The private screening room</p>
+          <h1 className="home-title">
+            Find your next <em>favorite</em> story.
+          </h1>
+        </div>
+        <p className="home-intro">
+          A considered collection of films for evenings that deserve a little
+          more atmosphere.
+        </p>
+      </div>
+      <form className="search-form" onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search for a movie..."
@@ -25,7 +51,7 @@ function Home() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className="search-button" onClick={handleSearch}>
+        <button type="submit" className="search-button">
           Search
         </button>
       </form>
