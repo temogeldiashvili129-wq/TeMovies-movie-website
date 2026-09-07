@@ -1,3 +1,36 @@
+.favorites-page {
+  animation: rise-in 600ms ease both;
+}
+
+.favorites-header {
+  margin-bottom: 42px;
+}
+
+.favorites-kicker {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.favorites-header h1 {
+  margin: 0;
+  color: var(--cream);
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 6vw, 5.3rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.favorites-header > p:last-child {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .favorites-empty {
   display: grid;
   min-height: 48vh;
